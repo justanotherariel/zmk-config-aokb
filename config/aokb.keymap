@@ -4,12 +4,10 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define _BASE   0
-#define _GAME   1
-#define _GNUM   2
-#define _LOWER  3
-#define _RAISE  4
-#define _FUNCT  5
-#define _ADJUST 6
+#define _LOWER  1
+#define _RAISE  2
+#define _FUNCT  3
+#define _ADJUST 4
 
 #define D_MUT LS(LC(F9))
 #define D_SIL LS(LC(F11))
@@ -57,26 +55,6 @@
             >;
         };
 
-        game_layer {
-            bindings = <
-//          |           |           |           |           |           |           |           |           |           |           |           |           |           
-            &kp TAB     &kp Q       &kp W       &kp E       &kp R                   &kp Y       &kp U       &kp I       &kp O       &kp P                
-&kp ESC     &kp LSFT    &kp A       &kp S       &kp D       &kp F                   &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp RET 
-&kp T       &kp LCTL    &kp Z       &kp X       &kp C       &kp V                   &kp N       &kp M       &kp VD_L    &kp VD_U    &kp VD_R    &kp LGUI
-                                    &kp LALT    &kp SPACE   &mo _GNUM               &mo _LOWER  &kp BSPC    &trans          
-            >;
-        };
-
-        gnum_layer {
-            bindings = <
-//          |           |           |           |           |           |           |           |           |           |           |           |           |           
-            &trans      &kp N1      &trans      &kp N2      &kp N3                  &trans      &trans      &kp UP      &trans      &trans
-&trans      &trans      &trans      &trans      &trans      &kp G                   &trans      &kp LEFT    &kp DOWN    &kp RIGHT   &trans      &kp LA(F4)
-&trans      &trans      &kp N4      &kp N5      &kp N6      &kp B                   &trans      &trans      &trans      &trans      &trans      &kp RALT
-                                    &trans      &trans      &trans                  &trans      &trans      &trans    
-            >;
-        };
-
         lower_layer {
             bindings = <
 //          |           |           |           |           |           |           |           |           |           |           |           |           |           
@@ -111,7 +89,7 @@
             bindings = <
 //          |           |           |           |           |           |           |           |           |           |           |           |           |           
             &kp E_IEX   &trans      &kp E_LL    &kp D_SHS   &kp C_VOL_UP            &kp C_PREV  &kp INS     &kp PSCRN   &kp SLCK    &kp PAUSE_BREAK
-&trans      &kp CAPS    &caps_word  &kp E_OF    &kp D_MUT   &kp C_VOL_DN            &kp C_PP    &to _BASE   &to _GAME   &bt BT_SEL 3 &kp K_APP  &trans
+&trans      &kp CAPS    &caps_word  &kp E_OF    &kp D_MUT   &kp C_VOL_DN            &kp C_PP    &trans      &trans      &bt BT_SEL 3 &kp K_APP  &trans
 &kp RALT    &kp NUHS    &trans      &kp E_DEG   &kp D_SIL   &kp C_MUTE              &kp C_NEXT &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &kp E_IQM &kp RCTL
                                     &kp LSFT    &trans      &mo _RAISE              &mo _LOWER  &trans      &kp RWIN
             >;
