@@ -9,31 +9,16 @@
 #define _FUNCT  3
 #define _ADJUST 4
 
-#define D_MUT LS(LC(F9))
-#define D_SIL LS(LC(F11))
-#define D_SHS LS(LC(F10))
+#define K_COMPOSE K_APP
 
-#define VD_L   LC(LG(LEFT))
-#define VD_R   LC(LG(RIGHT))
-#define VD_U   LG(TAB)
+#define D_MUT LS(LC(F9))        // Mutes the microphone in apps that support toggle mute with Ctrl+Shift+F9
+#define D_SIL LS(LC(F11))       // Likely to be a custom shortcut in specific applications, as Ctrl+Shift+F11 doesn't have a standard function in Windows
+#define D_SHS LS(LC(F10))       // Could be a custom shortcut in specific apps, since Ctrl+Shift+F10 doesn't have a default action in Windows
 
-#define E_IEX   RA(N1)
-#define E_IQM   RA(FSLH)
+#define VD_L   LC(LG(LEFT))     // Switches to the virtual desktop on the left using Ctrl+Win+Left Arrow
+#define VD_R   LC(LG(RIGHT))    // Switches to the virtual desktop on the right using Ctrl+Win+Right Arrow
+#define VD_U   LG(TAB)          // Shows the Windows task view for switching between apps and virtual desktops using Win+Tab
 
-#define E_NN    RA(N)
-#define E_CC    RA(C)
-#define E_LL    RA(RS(SEMI))
-#define E_OF    RA(N2)
-#define E_OM    RA(N3)
-#define E_DEG   RA(SEMI)
-#define E_EUR   RA(N5)
-#define E_PND   RA(N4)
-
-#define E_AOB   RA(GRAVE)
-#define E_ATC   RA(SQT)
-#define E_ACF   RA(N6)
-#define E_ADI   RA(RS(DQT))
-#define E_ATI   RA(RS(GRAVE))
 
 / {
     macros {
@@ -58,9 +43,9 @@
         lower_layer {
             bindings = <
 //          |           |           |           |           |           |           |           |           |           |           |           |           |           
-            &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT               &trans      &kp N7      &kp N8      &kp N9      &trans              
-&trans      &kp TILDE   &kp MINUS   &kp PLUS    &kp EQUAL   &kp E_PND               &trans      &kp N4      &kp N5      &kp N6      &kp N0      &trans    
-&trans      &kp GRAVE   &kp FSLH    &kp ASTRK   &kp UNDER   &kp E_EUR               &trans      &kp N1      &kp N2      &kp N3      &mo _FUNCT  &kp RALT
+            &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT               &none       &kp N7      &kp N8      &kp N9      &none               
+&trans      &kp TILDE   &kp MINUS   &kp PLUS    &kp EQUAL   &none                   &none       &kp N4      &kp N5      &kp N6      &kp N0      &trans    
+&trans      &kp GRAVE   &kp FSLH    &kp ASTRK   &kp UNDER   &none                   &none       &kp N1      &kp N2      &kp N3      &mo _FUNCT  &kp RALT
                                     &trans      &trans      &mo _RAISE              &mo _LOWER  &trans      &trans  
             >;
         };
@@ -70,7 +55,7 @@
 //          |           |           |           |           |           |           |           |           |           |           |           |           |           
             &kp VD_L    &kp HOME    &kp UP      &kp END     &kp VD_U                &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR    &kp RPAR               
 &trans      &kp ESC     &kp LEFT    &kp DOWN    &kp RIGHT   &kp VD_R                &kp LBRC    &kp LBKT    &kp RBKT    &kp RBRC    &kp SQT     &trans    
-&trans      &mo _FUNCT  &kp PG_DN   &kp E_CC    &kp PG_UP   &kp DEL                 &kp BSLH    &kp PIPE    &kp LT      &kp GT      &kp DQT     &kp RALT
+&trans      &mo _FUNCT  &kp PG_DN   &none       &kp PG_UP   &kp DEL                 &kp BSLH    &kp PIPE    &kp LT      &kp GT      &kp DQT     &kp RALT
                                     &trans      &trans      &mo _RAISE              &mo _LOWER  &trans      &trans     
             >;
         };
@@ -88,9 +73,9 @@
         adjust_layer {
             bindings = <
 //          |           |           |           |           |           |           |           |           |           |           |           |           |           
-            &kp E_IEX   &trans      &kp E_LL    &kp D_SHS   &kp C_VOL_UP            &kp C_PREV  &kp INS     &kp PSCRN   &kp SLCK    &kp PAUSE_BREAK
-&trans      &kp CAPS    &caps_word  &kp E_OF    &kp D_MUT   &kp C_VOL_DN            &kp C_PP    &trans      &trans      &bt BT_SEL 3 &kp K_APP  &trans
-&kp RALT    &kp NUHS    &trans      &kp E_DEG   &kp D_SIL   &kp C_MUTE              &kp C_NEXT &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &kp E_IQM &kp RCTL
+            &none       &none       &none       &kp D_SHS   &kp C_VOL_UP            &kp C_PREV  &kp INS     &kp PSCRN   &kp SLCK    &kp PAUSE_BREAK
+&trans      &kp CAPS    &caps_word  &none       &kp D_MUT   &kp C_VOL_DN            &kp C_PP    &kp K_APP   &none       &none       &none       &trans
+&kp RALT    &none       &none       &none       &kp D_SIL   &kp C_MUTE              &kp C_NEXT &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &kp RCTL
                                     &kp LSFT    &trans      &mo _RAISE              &mo _LOWER  &trans      &kp RWIN
             >;
         };
