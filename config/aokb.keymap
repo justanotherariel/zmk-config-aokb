@@ -97,8 +97,8 @@
         adjust_layer {
             bindings = <
 //          |           |           |           |           |           |           |           |           |           |           |           |           |           
-            &none       &none       &none       &kp D_SHS   &kp C_VOL_UP            &kp C_PREV  &kp INS     &kp PSCRN   &kp SLCK    &kp PAUSE_BREAK
-&trans      &kp CAPS    &caps_word  &none       &kp D_MUT   &kp C_VOL_DN            &kp C_PP    &kp K_APP   &none       &none       &none       &trans
+            &none       &none      &kp C_BRI_UP &kp D_SHS   &kp C_VOL_UP            &kp C_PREV  &kp INS     &kp PSCRN   &kp SLCK    &kp PAUSE_BREAK
+&trans      &kp CAPS    &caps_word &kp C_BRI_DN &kp D_MUT   &kp C_VOL_DN            &kp C_PP    &kp K_APP   &none       &none       &none       &trans
 &kp RALT    &none       &none       &none       &kp D_SIL   &kp C_MUTE              &kp C_NEXT &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &kp RCTL
                                     &kp LSFT    &trans      &mo _RAISE              &mo _LOWER  &trans      &kp RWIN
             >;
