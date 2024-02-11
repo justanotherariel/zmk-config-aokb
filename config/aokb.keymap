@@ -22,7 +22,18 @@
 
 / {
     macros {
+        /* LANGUAGE SPECIFIC*/
         
+        // Macro for Umlaute äöü
+        l_uml: l_uml {
+            label = "l_uml";
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings
+                = <&kp K_COMPOSE &kp DQT>,
+                  <&macro_param_1to1>,
+                  <&kp MACRO_PLACEHOLDER>;
+        };
     };
 };
 
@@ -43,9 +54,9 @@
         lower_layer {
             bindings = <
 //          |           |           |           |           |           |           |           |           |           |           |           |           |           
-            &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT               &none       &kp N7      &kp N8      &kp N9      &none               
-&trans      &kp TILDE   &kp MINUS   &kp PLUS    &kp EQUAL   &none                   &none       &kp N4      &kp N5      &kp N6      &kp N0      &trans    
-&trans      &kp GRAVE   &kp FSLH    &kp ASTRK   &kp UNDER   &none                   &none       &kp N1      &kp N2      &kp N3      &mo _FUNCT  &kp RALT
+            &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT               &l_uml A    &kp N7      &kp N8      &kp N9      &none               
+&trans      &kp TILDE   &kp MINUS   &kp PLUS    &kp EQUAL   &none                   &l_uml O    &kp N4      &kp N5      &kp N6      &kp N0      &trans    
+&trans      &kp GRAVE   &kp FSLH    &kp ASTRK   &kp UNDER   &none                   &l_uml U    &kp N1      &kp N2      &kp N3      &mo _FUNCT  &kp RALT
                                     &trans      &trans      &mo _RAISE              &mo _LOWER  &trans      &trans  
             >;
         };
