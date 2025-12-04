@@ -1,0 +1,8 @@
+.vscode/
+.west/
+.build/
+
+zephyr/
+zmk/
+modules/
+firmware/
