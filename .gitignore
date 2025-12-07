@@ -2,7 +2,7 @@
 .west/
 .build/
 
-zephyr/
-zmk/
-modules/
-firmware/
+/zephyr/
+/zmk/
+/modules/
+/firmware/
