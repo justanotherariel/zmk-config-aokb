@@ -3,6 +3,9 @@
 
 config SHIELD_AOKB_LEFT
 	def_bool $(shields_list_contains,aokb_left)
+	select ZMK_SPLIT
+	select ZMK_SPLIT_ROLE_CENTRAL
 
 config SHIELD_AOKB_RIGHT
 	def_bool $(shields_list_contains,aokb_right)
+	select ZMK_SPLIT
