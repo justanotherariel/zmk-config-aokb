@@ -1,6 +1,7 @@
 .vscode/
 
 .claude/
+/CLAUDE.md
 .direnv/
 .build/
 .west/
