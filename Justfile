@@ -119,63 +119,6 @@ update:
 upgrade-sdk:
     nix flake update --flake .
 
-# flash firmware for matching targets
-flash expr *args:
-    #!/usr/bin/env bash
-    set -euo pipefail
-
-    # Check if -r option is provided
-    rebuild=false
-    build_args=()
-    for arg in {{ args }}; do
-        if [[ "$arg" == "-r" ]]; then
-            rebuild=true
-        else
-            build_args+=("$arg")
-        fi
-    done
-
-    # Rebuild if -r option was provided
-    if [[ "$rebuild" == "true" ]]; then
-        echo "Rebuilding before flashing..."
-        just build "{{ expr }}" "${build_args[@]}"
-    fi
-
-    target=$(just _parse_targets {{ expr }} | head -n 1)
-
-    if [[ -z "$target" ]]; then
-        echo "No matching targets found for expression '{{ expr }}'. Aborting..." >&2
-        exit 1
-    fi
-
-    IFS=, read -r board shield snippet artifact <<< "$target"
-    # Use artifact-name if specified, otherwise construct from shield and board
-    if [[ -n "$artifact" ]]; then
-        artifact_name="$artifact"
-    else
-        artifact_name="${shield:+${shield// /+}-}${board}"
-    fi
-    uf2_file="$artifact_name.uf2"
-    uf2_path="{{ out }}/$uf2_file"
-
-    if [[ ! -f "$uf2_path" ]]; then
-        echo "Firmware file '$uf2_path' not found. Please build it first with 'just build \"{{ expr }}\"'." >&2
-        exit 1
-    fi
-
-    # macOS
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        echo "Flashing '$uf2_path'..."
-        ./flash.sh "$uf2_path"
-    # WSL
-    elif grep -q -i "Microsoft" /proc/version; then
-        echo "Flashing '$uf2_path'..."
-        powershell.exe -ExecutionPolicy Bypass -File flash.ps1 -Uf2File "$(wslpath -w $uf2_path)"
-    # Other: Not supported
-    else
-        echo "Flashing '$uf2_path' is not supported on this platform." >&2
-        exit 1
-    fi
 
 [no-cd]
 test $testpath *FLAGS:

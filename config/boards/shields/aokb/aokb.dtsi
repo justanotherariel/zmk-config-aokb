@@ -8,12 +8,11 @@
 
     wired_split {
         compatible = "zmk,wired-split";
-        device = <&split_uart>;
+        device = <&xiao_serial>;
     };
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
 
         diode-direction = "col2row";
         row-gpios
@@ -37,5 +36,3 @@ RC(3,1) RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4)                 RC(2,5) RC(2,6) 
         >;
     };
 };
-
-split_uart: &uart0 {};

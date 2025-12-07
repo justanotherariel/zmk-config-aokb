@@ -1,5 +1,7 @@
 .vscode/
 
+.claude/
+.direnv/
 .build/
 .west/
 /zephyr/

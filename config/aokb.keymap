@@ -21,7 +21,6 @@
         /* LANGUAGE SPECIFIC*/
         l_uml: l_uml {
             // Macro for Umlaute äöü
-            label = "l_uml";
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings
