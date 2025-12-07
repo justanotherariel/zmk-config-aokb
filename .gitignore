@@ -1,7 +1,7 @@
 .vscode/
-.west/
-.build/
 
+.build/
+.west/
 /zephyr/
 /zmk/
 /modules/
