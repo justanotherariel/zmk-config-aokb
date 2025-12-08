@@ -1,6 +1,0 @@
-if SHIELD_AOKB_LEFT
-
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
-
-endif
