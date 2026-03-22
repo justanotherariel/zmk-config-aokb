@@ -11,11 +11,6 @@
 
 #define K_COMPOSE K_APP
 
-#define VD_L   LC(LG(LEFT))     // Switches to the virtual desktop on the left using Ctrl+Win+Left Arrow
-#define VD_R   LC(LG(RIGHT))    // Switches to the virtual desktop on the right using Ctrl+Win+Right Arrow
-#define VD_U   LG(TAB)          // Shows the Windows task view for switching between apps and virtual desktops using Win+Tab
-
-
 / {
     macros {
         /* LANGUAGE SPECIFIC*/
@@ -53,7 +48,7 @@
             bindings = <
 //          |           |           |           |           |           |           |           |           |           |           |           |           |           
             &kp Q       &kp W       &kp E       &kp R       &kp T                   &kp Y       &kp U       &kp I       &kp O       &kp P
-&kp TAB     &kp A       &kp S       &kp D       &kp F       &kp G                   &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp RET
+&mt LALT TAB &kp A      &kp S       &kp D       &kp F       &kp G                   &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp RET
 &kp LCTL    &kp Z       &kp X       &kp C       &kp V       &kp B                   &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp LALT
                                     &kp LWIN    &kp SPACE   &mo _RAISE              &mo _LOWER  &kp BSPC    &kp RSFT     
             >;
@@ -64,7 +59,7 @@
 //          |           |           |           |           |           |           |           |           |           |           |           |           |           
             &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT               &l_uml A    &kp N7      &kp N8      &kp N9      &l_ss               
 &trans      &kp TILDE   &kp MINUS   &kp PLUS    &kp EQUAL   &e_deg                  &l_uml O    &kp N4      &kp N5      &kp N6      &kp N0      &trans    
-&trans      &kp GRAVE   &kp FSLH    &kp ASTRK   &kp UNDER   &e_eur                  &l_uml U    &kp N1      &kp N2      &kp N3      &mo _FUNCT  &kp RALT
+&trans      &kp GRAVE   &kp FSLH    &kp ASTRK   &kp UNDER   &e_eur                  &l_uml U    &kp N1      &kp N2      &kp N3      &mo _FUNCT  &kp RSFT
                                     &trans      &trans      &mo _RAISE              &mo _LOWER  &trans      &trans  
             >;
         };
@@ -72,9 +67,9 @@
         raise_layer {
             bindings = <
 //          |           |           |           |           |           |           |           |           |           |           |           |           |           
-            &kp VD_L    &kp HOME    &kp UP      &kp END     &kp VD_U                &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR    &kp RPAR               
-&trans      &kp ESC     &kp LEFT    &kp DOWN    &kp RIGHT   &kp VD_R                &kp LBRC    &kp LBKT    &kp RBKT    &kp RBRC    &kp SQT     &trans    
-&trans      &mo _FUNCT  &kp PG_DN   &none       &kp PG_UP   &kp DEL                 &kp BSLH    &kp PIPE    &kp LT      &kp GT      &kp DQT     &kp RALT
+            &kp LC(LEFT) &kp HOME   &kp UP      &kp END     &kp LC(RIGHT)           &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR    &kp RPAR
+&trans      &kp ESC     &kp LEFT    &kp DOWN    &kp RIGHT   &kp RET                 &kp LBRC    &kp LBKT    &kp RBKT    &kp RBRC    &kp SQT     &trans
+&trans      &mo _FUNCT  &kp PG_UP   &kp BSPC    &kp PG_DN   &kp DEL                 &kp BSLH    &kp PIPE    &kp LT      &kp GT      &kp DQT     &trans
                                     &trans      &trans      &mo _RAISE              &mo _LOWER  &trans      &trans     
             >;
         };
